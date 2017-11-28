@@ -116,32 +116,31 @@ class MarcoServidor extends JFrame implements Runnable{
                        //En caso de que el valor que llaga en el objeto   .GetTipo sea show se  se enviaran  los registros en el DB al cliente
                        if(PaqueteR.getTipo().equals("SHOW")){    
                            
-                           
+                       //Instanciamos un objeto de tipo Users
                         Users userU ;
                                              
-                        
-                           
+                       //Generamos una conexion a el cliente por medio de SOcket
                         Socket socketUp = new Socket( "127.0.0.1" , 9999);
+                        
+                        //Declaramos una instancia de ObjectOutStream
                         ObjectOutputStream PaqueteU = new  ObjectOutputStream(socketUp.getOutputStream());
 
+                        //Se realiza la conversion de String a entero  de la variable que almacena la fila a mostrar
                         int a = Integer.parseInt(PaqueteR.getFila());
                         user.setFila(a);
+                        //Se llama ala funcion Recuperar por ID, par que esta retorne el objeto de tipo Users
                         userU =  tareas_servicio.recuperarPorId(Conexion.obtener(), user.getFila());
                          
                        
                      
-                        
+                        //Se realiza el envio de la informacion
                         PaqueteU.writeObject( userU);
-                   
+                        //Se cierra el socket
                         socketUp.close();
                         
                         }
-                       
-                       
-                   
-			
-			//areatexto.append("\11n" + Mensaje);
-			
+     
+                        //Se cierra el socket principal
 			misocket.close();
 			
 			}
@@ -161,7 +160,7 @@ class MarcoServidor extends JFrame implements Runnable{
 		
 	}
         
-         private javax.swing.JTable elemento_tabla;
+         
 }
 
 

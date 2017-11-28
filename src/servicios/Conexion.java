@@ -16,6 +16,7 @@ public class Conexion {
       if (cnx == null) {
          try {
             Class.forName("com.mysql.jdbc.Driver");
+            //Se hace el ingreso a la base de datos andres, con el usuario root y contrase "", servicio que se encuentra corriendo en el host (lookback)
             cnx = DriverManager.getConnection("jdbc:mysql://localhost/andres", "root", "");
          } catch (SQLException ex) {
             throw new SQLException(ex);

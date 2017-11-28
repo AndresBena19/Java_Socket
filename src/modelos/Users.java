@@ -19,6 +19,7 @@ public class Users implements Serializable{
    private String password;
  
    
+   //Constructor vacio
    public Users() {
       this.id_user = null;
       this.name= null;
@@ -26,19 +27,7 @@ public class Users implements Serializable{
       this.password=null;
    }
    
-   public Users(Integer id_tarea, String name, Integer fila) {
-      this.id_user = id_tarea;
-      this.name = name;
-      this.fila=fila;
-   
-   }
-   
-   
-    public Users(int id_user, String string) {
-            this.id_user = id_user;
-            this.name = name;
-    }
-    
+   //Contructor con 3 tipos de datos de entrada, utilizado para realizar la presentacion de la informacion de la db a el usarioc cliente
     public Users(Integer id_tarea, String name, String password) {
       this.id_user = id_tarea;
       this.name = name;
@@ -47,7 +36,8 @@ public class Users implements Serializable{
    }
    
    
-
+//Metodos Getter's y Setter's 
+    
    public Integer getId_user() {
       return id_user;
    }
